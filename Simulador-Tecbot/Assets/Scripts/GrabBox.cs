@@ -8,7 +8,7 @@ public class GrabBox : MonoBehaviour {
 	void Start () {
 		
 	}
-	
+	/*
 	// Update is called once per frame
 	void Update () {
         if (hanged == false && Input.GetKeyDown(KeyCode.Space))
@@ -36,6 +36,6 @@ public class GrabBox : MonoBehaviour {
         }
 
     }
-    
+    */
 
 }

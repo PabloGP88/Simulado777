@@ -8,21 +8,24 @@ public class MoveRobot : MonoBehaviour {
     float translation;
     float rotation;
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
+    // Use this for initialization
+    void Start() {
+
+    }
+
+    // Update is called once per frame
+    void Update() {
         translation = Input.GetAxis("Vertical") * speed;
         rotation = Input.GetAxis("Horizontal") * rotationSpeed;
         translation *= Time.deltaTime;
         rotation *= Time.deltaTime;
 
         // Mueve el robot
+
         transform.Translate(0, 0, translation);
         // Rota el robot
         transform.Rotate(0, rotation, 0);
+
+
     }
 }
