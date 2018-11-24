@@ -3,42 +3,44 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class GrabBox : MonoBehaviour {
+
     public bool hanged;
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-        Debug.Log(hanged);
-        if (hanged == false && Input.GetKeyDown(KeyCode.Space))
+
+    int grabed;
+
+    private void Start()
+    {
+        hanged = false;
+    }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Space))
         {
             hanged = true;
         }
-        if (hanged == true && Input.GetKeyUp(KeyCode.Space))
+        if (Input.GetKeyUp(KeyCode.Space))
         {
             hanged = false;
         }
     }
-    private void OnCollisionEnter(Collision col)
+
+    private void OnTriggerStay(Collider col)
     {
-        Debug.Log("a la verga");
-        if (col.gameObject.tag == "Object" && hanged == true)
+        if (col.gameObject.tag == "Object" && hanged == true && grabed != 1)
         {
-
-            col.transform.parent = gameObject.transform;
-            col.gameObject.GetComponent<Rigidbody>().isKinematic = true;
-            
+            grabed = 1;
+            col.transform.parent = gameObject.transform.parent;
+            col.GetComponent<Rigidbody>().isKinematic = true;
         }
-        if (hanged == false)
+        if (hanged == false )
         {
+            grabed = 0;
+            col.GetComponent<Rigidbody>().isKinematic = false;
             col.transform.parent = GameObject.Find("Objects").transform;
-            col.gameObject.GetComponent<Rigidbody>().isKinematic = false;
 
         }
-
     }
-   
+
 
 }
