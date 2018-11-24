@@ -8,9 +8,10 @@ public class GrabBox : MonoBehaviour {
 	void Start () {
 		
 	}
-	/*
+	
 	// Update is called once per frame
 	void Update () {
+        Debug.Log(hanged);
         if (hanged == false && Input.GetKeyDown(KeyCode.Space))
         {
             hanged = true;
@@ -20,11 +21,13 @@ public class GrabBox : MonoBehaviour {
             hanged = false;
         }
     }
-    private void OnCollisionStay(Collision col)
+    private void OnCollisionEnter(Collision col)
     {
+        Debug.Log("a la verga");
         if (col.gameObject.tag == "Object" && hanged == true)
         {
-            col.transform.parent = GameObject.Find("Robot").transform;
+
+            col.transform.parent = gameObject.transform;
             col.gameObject.GetComponent<Rigidbody>().isKinematic = true;
             
         }
@@ -36,6 +39,6 @@ public class GrabBox : MonoBehaviour {
         }
 
     }
-    */
+   
 
 }
